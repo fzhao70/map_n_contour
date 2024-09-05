@@ -78,3 +78,19 @@ def style_contourf(ax,
                      extend='both', alpha=0.8, zorder=1)
 
     return cs
+
+def figure_format_setting(ax, id):
+    """ Setting the format of the figure for the publication
+    Useful when you want to have a consistent format for all the figures
+    """
+    plt.style.use("seaborn-v0_8-talk")
+    ax.tick_params(labelsize = 'x-large')
+    ax.ticklabel_format(axis='y', style='sci')
+    ax.yaxis.offsetText.set_fontsize('x-large')
+    ax.legend(fontsize = 'x-large')
+    ax.grid(True)
+
+    ax.text(0.05, 1.10, f'{id}', transform=ax.transAxes, fontsize = 'xx-large', 
+        verticalalignment='top', horizontalalignment='right',
+        bbox=dict(facecolor='0.7', edgecolor='none', pad=3.0))
+    return ax
