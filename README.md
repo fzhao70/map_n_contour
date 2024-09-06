@@ -6,6 +6,13 @@ A handy map to plot contour on map using python
 ```
 pip install git+https://github.com/fzhao70/map_n_contour.git
 ```
+### API list and Document
+
+```
+https://fzhao70.github.io/map_n_contour/
+```
+
+[https://fzhao70.github.io/map_n_contour/](https://fzhao70.github.io/map_n_contour/)
 
 ## Example to use that
 
@@ -27,14 +34,5 @@ cs = style_contourf(ax, lon, lat, data4, vint = np.linspace(-2, 2, 20), cmap_nam
 
 Simple as that
 
-### API list
 
 
-| Name                   |    Description                     |
-| --------               |     --------                       |
-| map_setting_lambert    |  Setting map on the specific axes  |
-| style_contourf         |  A simple wrapper for contourf     | 
-| figure_format_setting  | Simple format for XY plot          |
-| distance_ll | |
-| calculate_grid_cell_area | |
-| printMinMax | | 
