@@ -40,6 +40,25 @@ hljs.highlightAll();
 <div class="desc"><p>Print the minimum and maximum values of a numpy array</p>
 <p>The reason the name is changed from print_min_max to snake_case printMinMax is to follow the NCL naming convention.</p></div>
 </dd>
+<dt id="map_n_contour.utils.smooth_savgol"><code class="name flex">
+<span>def <span class="ident">smooth_savgol</span></span>(<span>data, window_length=11, polyorder=2)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Smooths the input data using the Savitzky-Golay filter.
+From ChatGPT</p>
+<p>Parameters:
+- data: numpy array
+The input data array to be smoothed.
+- window_length: int, optional (default=11)
+The length of the filter window (i.e., the number of coefficients).
+<code>window_length</code> must be a positive odd integer.
+- polyorder: int, optional (default=2)
+The order of the polynomial used to fit the samples.
+<code>polyorder</code> must be less than <code>window_length</code>.</p>
+<p>Returns:
+- smoothed_data: numpy array
+The smoothed data array.</p></div>
+</dd>
 </dl>
 </section>
 <section>
@@ -58,6 +77,7 @@ hljs.highlightAll();
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="map_n_contour.utils.printMinMax" href="#map_n_contour.utils.printMinMax">printMinMax</a></code></li>
+<li><code><a title="map_n_contour.utils.smooth_savgol" href="#map_n_contour.utils.smooth_savgol">smooth_savgol</a></code></li>
 </ul>
 </li>
 </ul>
