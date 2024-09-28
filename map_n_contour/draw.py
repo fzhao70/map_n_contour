@@ -12,8 +12,10 @@ import cartopy.crs as ccrs
 import cartopy.feature as cfeature
 import cartopy.io.img_tiles as cimgt
 import matplotlib as mpl
+import matplotlib.dates as md
 from matplotlib import cm
 from mpl_toolkits.axes_grid1 import make_axes_locatable, axes_size
+
 
 def map_setting_lambert(fig,
                         pos:int,
@@ -93,4 +95,34 @@ def figure_format_setting(ax, id):
     ax.text(0.05, 1.10, f'{id}', transform=ax.transAxes, fontsize = 'xx-large', 
         verticalalignment='top', horizontalalignment='right',
         bbox=dict(facecolor='0.7', edgecolor='none', pad=3.0))
+    return ax
+
+def format_bar(ax):
+    ax.tick_params(labelsize = 'xx-large')
+    ax.yaxis.offsetText.set_fontsize('xx-large')
+    ax.legend(fontsize = 'xx-large', loc = 'lower right')
+    ax.grid(True)
+    
+    return ax
+
+def format_diurnal(ax, interval = 2):
+    ax.tick_params(labelsize = 'xx-large')
+    ax.yaxis.offsetText.set_fontsize('xx-large')
+    ax.xaxis.set_major_formatter(md.DateFormatter('%H:%M'))
+    ax.xaxis.set_major_locator(md.HourLocator(interval = interval))
+    ax.xaxis.set_tick_params(rotation=45)
+    ax.legend(fontsize = 'xx-large', loc = 'upper right')
+    ax.grid(True)
+    
+    return ax
+
+def format_time_series(ax, interval = md.HourLocator(interval = 2)):
+    ax.tick_params(labelsize = 'xx-large')
+    ax.yaxis.offsetText.set_fontsize('xx-large')
+    ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d %H:%M'))
+    ax.xaxis.set_major_locator(interval)
+    ax.xaxis.set_tick_params(rotation=45)
+    ax.legend(fontsize = 'xx-large', loc = 'upper right')
+    ax.grid(True)
+    
     return ax
