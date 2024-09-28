@@ -111,7 +111,7 @@ def format_diurnal(ax, interval = 2):
     ax.xaxis.set_major_formatter(md.DateFormatter('%H:%M'))
     ax.xaxis.set_major_locator(md.HourLocator(interval = interval))
     ax.xaxis.set_tick_params(rotation=45)
-    ax.legend(fontsize = 'xx-large', loc = 'upper right')
+    ax.legend(fontsize = 'xx-large')
     ax.grid(True)
     
     return ax
@@ -122,7 +122,7 @@ def format_time_series(ax, interval = md.HourLocator(interval = 2)):
     ax.xaxis.set_major_formatter(md.DateFormatter('%Y-%m-%d %H:%M'))
     ax.xaxis.set_major_locator(interval)
     ax.xaxis.set_tick_params(rotation=45)
-    ax.legend(fontsize = 'xx-large', loc = 'upper right')
+    ax.legend(fontsize = 'xx-large')
     ax.grid(True)
     
     return ax
