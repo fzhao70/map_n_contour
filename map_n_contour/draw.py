@@ -16,19 +16,7 @@ import matplotlib.dates as md
 from matplotlib import cm
 from mpl_toolkits.axes_grid1 import make_axes_locatable, axes_size
 
-
-def map_setting_lambert(fig,
-                        pos:int,
-                        lat0:float,
-                        lon0:float,
-                        lat1:float,
-                        lat2:float):
-    """ Setting map on the current axes
-    """
-    plt.style.use("seaborn-v0_8-talk")
-
-    lcc = ccrs.LambertConformal(central_latitude=lat0, central_longitude=lon0, standard_parallels=(lat1,lat2))
-    ax = fig.add_subplot(pos, projection=lcc)
+def map_add_element(ax):
     states_provinces = cfeature.NaturalEarthFeature(
         category='cultural',
         name='admin_1_states_provinces_lines',
@@ -42,7 +30,10 @@ def map_setting_lambert(fig,
     ocean_mask = cfeature.OCEAN.with_scale('50m')
     ax.coastlines()
     ax.set_aspect('auto')
+    
+    return ax
 
+def map_add_gl(ax):
     gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True,
               linewidth=0.6, color='gray', alpha=0.5, linestyle='--',
               x_inline = False, y_inline = False)
@@ -52,6 +43,36 @@ def map_setting_lambert(fig,
     gl.rotate_labels = False
     gl.xlabel_style = {'size': 4, 'color': 'gray'}
     gl.ylabel_style = {'size': 4, 'color': 'gray'}
+
+    return gl
+
+def map_ordinary_setting(fig,
+                        pos:int):
+    """ Setting map on the current axes
+    """
+    plt.style.use("seaborn-v0_8-talk")
+    
+    ax = fig.add_subplot(pos, projection=ccrs.PlateCarree)
+    ax = map_add_element(ax)
+    gl = map_add_gl(ax)
+
+    return ax, gl
+
+def map_setting_lambert(fig,
+                        pos:int,
+                        lat0:float,
+                        lon0:float,
+                        lat1:float,
+                        lat2:float):
+    """ Setting map on the current axes
+    """
+    plt.style.use("seaborn-v0_8-talk")
+
+    lcc = ccrs.LambertConformal(central_latitude=lat0, central_longitude=lon0, standard_parallels=(lat1,lat2))
+    ax = fig.add_subplot(pos, projection=lcc)
+    
+    ax = map_add_element(ax)
+    gl = map_add_gl(ax)
 
     return ax, gl
 
