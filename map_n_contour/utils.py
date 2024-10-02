@@ -44,3 +44,24 @@ def smooth_savgol(data, window_length=11, polyorder=2):
     # Apply Savitzky-Golay filter
     smoothed_data = savgol_filter(data, window_length, polyorder)
     return smoothed_data
+
+def fillnan(arr):
+    """
+    Interpolate missing values (NaN) in a 1D numpy array.
+    
+    Parameters:
+    arr (numpy.ndarray): 1D array with possible NaN values
+    
+    Returns:
+    numpy.ndarray: Array with NaN values filled by linear interpolation
+    """
+    # Find indices of non-NaN values
+    valid = ~np.isnan(arr)
+    
+    # Get indices of all values
+    indices = np.arange(len(arr))
+    
+    # Interpolate
+    interp_values = np.interp(indices, indices[valid], arr[valid])
+    
+    return interp_values
