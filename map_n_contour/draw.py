@@ -52,7 +52,7 @@ def map_ordinary_setting(fig,
     """
     plt.style.use("seaborn-v0_8-talk")
     
-    ax = fig.add_subplot(pos, projection=ccrs.PlateCarree)
+    ax = fig.add_subplot(pos, projection=ccrs.PlateCarree())
     ax = map_add_element(ax)
     gl = map_add_gl(ax)
 
