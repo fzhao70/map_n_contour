@@ -6,6 +6,13 @@ A handy map to plot contour on map using python
 ```
 pip install git+https://github.com/fzhao70/map_n_contour.git
 ```
+
+To uninstall it
+
+```
+pip uninstall map_n_contour
+```
+
 ### API list and Document
 
 ```
