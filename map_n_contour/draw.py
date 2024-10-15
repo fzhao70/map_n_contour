@@ -77,10 +77,10 @@ def map_setting_lambert(fig,
     lcc = ccrs.LambertConformal(central_latitude=lat0, central_longitude=lon0, standard_parallels=(lat1,lat2))
     ax = fig.add_subplot(pos, projection=lcc)
     
-    ax = map_add_element(ax)
-    gl = map_add_gl(ax)
+    #ax = map_add_element(ax)
+    #gl = map_add_gl(ax)
 
-    return ax, gl
+    return ax
 
 def style_contourf(ax,
                    lon2d:np.ndarray,
