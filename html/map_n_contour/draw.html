@@ -40,8 +40,8 @@ hljs.highlightAll();
 <div class="desc"><p>Setting the format of the figure for the publication
 Useful when you want to have a consistent format for all the figures</p></div>
 </dd>
-<dt id="map_n_contour.draw.format_bar"><code class="name flex">
-<span>def <span class="ident">format_bar</span></span>(<span>ax)</span>
+<dt id="map_n_contour.draw.format_basic"><code class="name flex">
+<span>def <span class="ident">format_basic</span></span>(<span>ax)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -59,19 +59,19 @@ Useful when you want to have a consistent format for all the figures</p></div>
 <div class="desc"></div>
 </dd>
 <dt id="map_n_contour.draw.map_add_element"><code class="name flex">
-<span>def <span class="ident">map_add_element</span></span>(<span>ax)</span>
+<span>def <span class="ident">map_add_element</span></span>(<span>ax, province_width=0.3, ifroad=False, ifocean=False)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Add elements to the map</p></div>
 </dd>
 <dt id="map_n_contour.draw.map_add_gl"><code class="name flex">
-<span>def <span class="ident">map_add_gl</span></span>(<span>ax)</span>
+<span>def <span class="ident">map_add_gl</span></span>(<span>ax, labelsize=4)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="map_n_contour.draw.map_ordinary_setting"><code class="name flex">
-<span>def <span class="ident">map_ordinary_setting</span></span>(<span>fig, pos: int)</span>
+<dt id="map_n_contour.draw.map_ordinary"><code class="name flex">
+<span>def <span class="ident">map_ordinary</span></span>(<span>fig, pos: int)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Setting map on the current axes</p></div>
@@ -106,12 +106,12 @@ Useful when you want to have a consistent format for all the figures</p></div>
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="map_n_contour.draw.figure_format_setting" href="#map_n_contour.draw.figure_format_setting">figure_format_setting</a></code></li>
-<li><code><a title="map_n_contour.draw.format_bar" href="#map_n_contour.draw.format_bar">format_bar</a></code></li>
+<li><code><a title="map_n_contour.draw.format_basic" href="#map_n_contour.draw.format_basic">format_basic</a></code></li>
 <li><code><a title="map_n_contour.draw.format_diurnal" href="#map_n_contour.draw.format_diurnal">format_diurnal</a></code></li>
 <li><code><a title="map_n_contour.draw.format_time_series" href="#map_n_contour.draw.format_time_series">format_time_series</a></code></li>
 <li><code><a title="map_n_contour.draw.map_add_element" href="#map_n_contour.draw.map_add_element">map_add_element</a></code></li>
 <li><code><a title="map_n_contour.draw.map_add_gl" href="#map_n_contour.draw.map_add_gl">map_add_gl</a></code></li>
-<li><code><a title="map_n_contour.draw.map_ordinary_setting" href="#map_n_contour.draw.map_ordinary_setting">map_ordinary_setting</a></code></li>
+<li><code><a title="map_n_contour.draw.map_ordinary" href="#map_n_contour.draw.map_ordinary">map_ordinary</a></code></li>
 <li><code><a title="map_n_contour.draw.map_setting_lambert" href="#map_n_contour.draw.map_setting_lambert">map_setting_lambert</a></code></li>
 <li><code><a title="map_n_contour.draw.style_contourf" href="#map_n_contour.draw.style_contourf">style_contourf</a></code></li>
 </ul>

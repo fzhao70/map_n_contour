@@ -16,24 +16,30 @@ import matplotlib.dates as md
 from matplotlib import cm
 from mpl_toolkits.axes_grid1 import make_axes_locatable, axes_size
 
-def map_add_element(ax):
+def map_add_element(ax, province_width = 0.3, ifroad = False, ifocean = False):
+    """ Add elements to the map
+    """
     states_provinces = cfeature.NaturalEarthFeature(
         category='cultural',
         name='admin_1_states_provinces_lines',
         scale='10m',
         facecolor='none')
 
-    ax.add_feature(states_provinces, edgecolor='grey', linewidth=0.2)
+    ax.add_feature(states_provinces, edgecolor='grey', linewidth=province_width)
     ax.add_feature(cfeature.COASTLINE, edgecolor='black')
     ax.add_feature(cfeature.BORDERS, edgecolor='black')
     roads = cfeature.NaturalEarthFeature('cultural','Roads','10m',facecolor='none')
     ocean_mask = cfeature.OCEAN.with_scale('50m')
     ax.coastlines()
-    ax.set_aspect('auto')
+    if ifroad:
+        ax.add_feature(roads)
+    if ifocean:
+        ax.add_feature(ocean_mask)
+    #ax.set_aspect('auto')
     
     return ax
 
-def map_add_gl(ax):
+def map_add_gl(ax, labelsize = 4):
     gl = ax.gridlines(crs=ccrs.PlateCarree(), draw_labels=True,
               linewidth=0.6, color='gray', alpha=0.5, linestyle='--',
               x_inline = False, y_inline = False)
@@ -41,12 +47,12 @@ def map_add_gl(ax):
     gl.bottom_labels = False
     gl.right_labels = False
     gl.rotate_labels = False
-    gl.xlabel_style = {'size': 4, 'color': 'gray'}
-    gl.ylabel_style = {'size': 4, 'color': 'gray'}
+    gl.xlabel_style = {'size': labelsize, 'color': 'black'}
+    gl.ylabel_style = {'size': labelsize, 'color': 'black'}
 
     return gl
 
-def map_ordinary_setting(fig,
+def map_ordinary(fig,
                         pos:int):
     """ Setting map on the current axes
     """
@@ -118,7 +124,7 @@ def figure_format_setting(ax, id):
         bbox=dict(facecolor='0.7', edgecolor='none', pad=3.0))
     return ax
 
-def format_bar(ax):
+def format_basic(ax):
     ax.tick_params(labelsize = 'xx-large')
     ax.yaxis.offsetText.set_fontsize('xx-large')
     ax.legend(fontsize = 'xx-large', loc = 'lower right')

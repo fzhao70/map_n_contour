@@ -15,10 +15,6 @@ pip uninstall map_n_contour
 
 ### API list and Document
 
-```
-https://fzhao70.github.io/map_n_contour/
-```
-
 [https://fzhao70.github.io/map_n_contour/](https://fzhao70.github.io/map_n_contour/)
 
 ## Example to use that
