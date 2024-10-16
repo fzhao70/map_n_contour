@@ -108,6 +108,25 @@ def style_contourf(ax,
 
     return cs
 
+def set_colormap(vmin, vmax, nlevel, cmap_name = 'jet', under_color = 'white', log = False):
+    """
+    Set the colormap for the contour plot
+    
+    return: vint, cmap, bounds
+    
+    """
+    if log:
+        vint = np.logspace(np.log10(vmin), np.log10(vmax), nlevel)
+    else:
+        vint = np.linspace(vmin, vmax, nlevel)
+        
+    cmap = copy.copy(mpl.colormaps[f"{cmap_name}"])
+    cmap.set_under(color=under_color)
+    
+    bounds = colors.BoundaryNorm(boundaries=vint,ncolors=256)
+    
+    return vint, cmap, bounds
+
 def figure_format_setting(ax, id):
     """ Setting the format of the figure for the publication
     Useful when you want to have a consistent format for all the figures
